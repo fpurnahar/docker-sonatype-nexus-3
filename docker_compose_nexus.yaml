@@ -1,0 +1,22 @@
+version: "3.7"
+
+services:
+  nexus:
+    image: fpurnahar42/sonatype-nexus3:latest
+    ports:
+      - "8081:8081"
+      - "8082:8082"
+      - "8083:8083"
+    volumes:
+      - data_nexus:/nexus-data
+    networks:
+      local_network:
+    container_name: nexus
+
+volumes:
+  data_nexus:
+    external: true
+
+networks:
+  local_network:
+    external: true
